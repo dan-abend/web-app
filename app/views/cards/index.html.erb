@@ -1,24 +1,51 @@
+<h1>Welcome to the Casino!</h1>
+
 <%
-    card = [2,3,4,5,6,7,8,9,10,"jack","queen","king","ace"]
+    rank = [2,3,4,5,6,7,8,9,10,"jack","queen","king","ace"]
     suit = ["clubs","diamonds","spades","hearts"]
-    card_one = card.sample
+    rank_one = rank.sample
     suite_one = suit.sample
-    card_two = card.sample
+    rank_two = rank.sample
     suite_two = suit.sample
-    card_three = card.sample
+    rank_three = rank.sample
     suite_three = suit.sample
-    card_four = card.sample
+    rank_four = rank.sample
     suite_four = suit.sample
-    card_five = card.sample
+    rank_five = rank.sample
     suite_five = suit.sample
 %>
 <p>
-<img src="/images/cards/<%=card_one%>_of_<%=suite_one%>.svg">
-<img src="/images/cards/<%=card_two%>_of_<%=suite_two%>.svg">
-<img src="/images/cards/<%=card_three%>_of_<%=suite_three%>.svg">
-<img src="/images/cards/<%=card_four%>_of_<%=suite_four%>.svg">
-<img src="/images/cards/<%=card_five%>_of_<%=suite_five%>.svg">
+<img src="/images/cards/<%=rank_one%>_of_<%=suite_one%>.svg">
+<img src="/images/cards/<%=rank_two%>_of_<%=suite_two%>.svg">
+<img src="/images/cards/<%=rank_three%>_of_<%=suite_three%>.svg">
+<img src="/images/cards/<%=rank_four%>_of_<%=suite_four%>.svg">
+<img src="/images/cards/<%=rank_five%>_of_<%=suite_five%>.svg">
 </p>
 <p>
 <a href="/cards">Deal Again!</a>
+</p>
+
+<p>
+<h1>OTHER WAY TO DO THIS FOR REFERENCE:</h1>
+</p>
+<%
+rank = [2,3,4,5,6,7,8,9,10,"jack","queen","king","ace"]
+suit = ["clubs","diamonds","spades","hearts"]
+deck = []
+for rank in ranks
+    for suit in suits
+        deck << "#{rank}_of_#{suit}"
+    end
+end
+
+shuffled_deck = deck.shuffle
+hand = shuffled_deck[0,5]
+
+%>
+<p>
+<%=
+for card in hand
+    <img src="/images/cards/<%=card%>.svg">
+end  
+%>
 </p>
